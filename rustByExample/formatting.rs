@@ -11,8 +11,8 @@ struct City {
 impl Display for City {
     // `f` is a buffer, and this method must write the formatted string into it.
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
-        let lat_c = if &self.lat >= &0.0 { 'N' } else { 'S' };
-        let lon_c = if &self.lon >= &0.0 { 'E' } else { 'W' };
+        let lat_c = if self.lat >= 0.0 { 'N' } else { 'S' };
+        let lon_c = if self.lon >= 0.0 { 'E' } else { 'W' };
 
         // `write` is like `format!`, but it will write the formatted string
         // into a buffer (the first argument).
