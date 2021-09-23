@@ -24,10 +24,30 @@ struct Rectangle {
     bottom_right: Point,
 }
 
-fn rect_area(rectangle: Rectangle<>) {
-    let Rectangle { top_left: Point { x: height, y: width},bottom_right: _ } = rectangle;
+fn rect_area(rectangle: Rectangle) {
+    let Rectangle {
+        top_left: Point {
+            x: height,
+            y: width,
+        },
+        bottom_right: _,
+    } = rectangle;
     let area = height * width;
     println!("{}", area);
+}
+
+fn square(p: Point, i: f32) {
+    let lower_left: Point = p;
+    let width: f32 = i;
+    let height: f32 = i;
+    let rect = Rectangle {
+        top_left: lower_left,
+        bottom_right: Point {
+            x: height,
+            y: width,
+        },
+    };
+    return(&static Rectangle);
 }
 
 fn main() {
@@ -47,18 +67,24 @@ fn main() {
 
     // Make a new point by using struct update syntax to use the fields of our
     // other one
-    let bottom_right = Point { x: 5.2,  ..point };
+    let bottom_right = Point { x: 5.2, ..point };
 
     // 'bottom_right.y' will be the same as 'point.y' because we used that field
     // from 'point'
     println!("second point: ({}, {})", bottom_right.x, bottom_right.y);
 
     // Destructure the point using a 'let' binding
-    let Point { x: left_edge, y: top_edge } = point;
+    let Point {
+        x: left_edge,
+        y: top_edge,
+    } = point;
 
     let _rectangle = Rectangle {
         //struct initiation is an expression too
-        top_left: Point { x: left_edge, y: top_edge },
+        top_left: Point {
+            x: left_edge,
+            y: top_edge,
+        },
         bottom_right: bottom_right,
     };
 
@@ -76,5 +102,4 @@ fn main() {
 
     println!("pair contains {:?} and {:?}", integer, decimal);
     rect_area(_rectangle);
-
 }
