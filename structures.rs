@@ -47,7 +47,8 @@ fn square(p: Point, i: f32) {
             y: width,
         },
     };
-    return(&static Rectangle);
+    //return(&static Rectangle);
+    println!("{}", rect.top_left);
 }
 
 fn main() {
